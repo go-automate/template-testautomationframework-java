@@ -17,31 +17,6 @@ pipeline {
 
     stages {
 
-//        stage('Start Selenium Server Hub'){
-//            steps {
-//                sh "cd src/test/resources/selenium_server/"
-//                sh "launch-hub.sh &"
-//            }
-//        }
-//
-//        stage('Start Selenium Server Firefox Node'){
-//
-//            steps {
-//                sh "cd src/test/resources/selenium_server/"
-//                sh "launch-firefox-node.sh &"
-//            }
-//
-//        }
-//
-//        stage('Start Selenium Server Chrome Node'){
-//
-//            steps {
-//                sh "cd src/test/resources/selenium_server/"
-//                sh "launch-chrome-node.sh &"
-//            }
-//
-//        }
-
         stage('BDD Requirements Testing') {
             steps {
                 sh "mvn -Dtest=${params.tests} clean test -Durl=${params.url} -Dbrowser=${params.browser} -DwaitTime=${params.wait}"
